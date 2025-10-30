@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: piponne-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: piponne
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - piponne-network
+
+  # Backend API
+  piponne-back:
+    build:
+      context: ./piponne-back
+      dockerfile: Dockerfile
+      target: development
+    container_name: piponne-back
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - MONGODB_URI=mongodb://mongodb:27017/piponne
+      - CORS_ORIGIN=http://localhost:3000
+    volumes:
+      - ./piponne-back/src:/app/src
+      - ./piponne-back/node_modules:/app/node_modules
+    depends_on:
+      - mongodb
+    networks:
+      - piponne-network
+
+  # Frontend Application
+  piponne-app:
+    build:
+      context: ./piponne-app
+      dockerfile: Dockerfile
+    container_name: piponne-app
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - piponne-back
+    networks:
+      - piponne-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  piponne-network:
+    driver: bridge
