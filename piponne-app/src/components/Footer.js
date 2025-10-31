@@ -11,6 +11,8 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Footer = () => {
   return (
@@ -70,18 +72,39 @@ const Footer = () => {
               Síguenos
             </Typography>
             <Box>
-              <IconButton color="inherit" aria-label="Facebook">
+              <IconButton 
+                color="inherit" 
+                aria-label="Facebook"
+                href="https://www.facebook.com/donpiponnecatering"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FacebookIcon />
               </IconButton>
-              <IconButton color="inherit" aria-label="Instagram">
+              <IconButton 
+                color="inherit" 
+                aria-label="Instagram"
+                href="https://www.instagram.com/donpiponne/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <InstagramIcon />
+              </IconButton>
+              <IconButton 
+                color="inherit" 
+                aria-label="LinkedIn"
+                href="https://www.linkedin.com/company/donpiponne/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedInIcon />
               </IconButton>
             </Box>
             <Typography variant="body2" sx={{ mt: 2 }}>
               Horarios de atención:
             </Typography>
             <Typography variant="body2">
-              Lun - Sáb: 10:00 - 22:00
+              Lun - Vie: 08:00 - 17:00
             </Typography>
           </Grid>
         </Grid>
@@ -90,12 +113,38 @@ const Footer = () => {
           <Typography variant="body2" align="center">
             © {new Date().getFullYear()} Don Piponne. Todos los derechos reservados.
           </Typography>
-          <Typography variant="caption" align="center" display="block" sx={{ mt: 1 }}>
-            Desarrollado por{' '}
-            <Link href="http://lminnova.com.ar/" color="secondary.light" target="_blank" rel="noopener">
-              LMInnova
-            </Link>
-          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1, gap: 1 }}>
+            <Typography variant="caption" align="center">
+              Desarrollado por{' '}
+              <Link 
+                href="https://www.linkedin.com/in/rodrigoenzohernandez/" 
+                color="secondary.light" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                sx={{ fontWeight: 600 }}
+              >
+                Rodrigo Enzo Hernandez
+              </Link>
+            </Typography>
+            <IconButton 
+              size="small" 
+              href="https://www.linkedin.com/in/rodrigoenzohernandez/"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ color: 'secondary.light', p: 0.5 }}
+            >
+              <LinkedInIcon fontSize="small" />
+            </IconButton>
+            <IconButton 
+              size="small" 
+              href="https://github.com/rodrigoenzohernandez"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ color: 'secondary.light', p: 0.5 }}
+            >
+              <GitHubIcon fontSize="small" />
+            </IconButton>
+          </Box>
         </Box>
       </Container>
     </Box>
