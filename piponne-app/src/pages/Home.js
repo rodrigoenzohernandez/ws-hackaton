@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Box,
@@ -16,6 +16,60 @@ import FeatureCard from '../components/FeatureCard';
 import ProductCard from '../components/ProductCard';
 
 const Home = () => {
+  const [mainProducts, setMainProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);
+        if (response.ok) {
+          const data = await response.json();
+          // Transform and take only first 4 products
+          const transformedData = data.slice(0, 4).map(product => ({
+            ...product,
+            id: product._id,
+          }));
+          setMainProducts(transformedData);
+        }
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        // Fallback products with images
+        setMainProducts([
+          {
+            id: 'fallback-1',
+            name: 'Pizza Party',
+            description: 'Pizzas artesanales elaboradas con ingredientes de primera calidad.',
+            category: 'Eventos',
+            image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=250&fit=crop',
+          },
+          {
+            id: 'fallback-2',
+            name: 'Catering',
+            description: 'Servicios de catering para todo tipo de eventos.',
+            category: 'Eventos',
+            image: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=400&h=250&fit=crop',
+          },
+          {
+            id: 'fallback-3',
+            name: 'Viandas para Empresas',
+            description: 'Menús ejecutivos y viandas para comedores empresariales.',
+            category: 'Empresas',
+            image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=250&fit=crop',
+          },
+          {
+            id: 'fallback-4',
+            name: 'Barra de Tragos',
+            description: 'Servicio profesional de barra de tragos.',
+            category: 'Eventos',
+            image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&h=250&fit=crop',
+          },
+        ]);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   const features = [
     {
       icon: RestaurantIcon,
@@ -36,37 +90,6 @@ const Home = () => {
       icon: StarIcon,
       title: 'Servicios de Calidad',
       description: 'Profesionalismo y compromiso',
-    },
-  ];
-
-  const mainProducts = [
-    {
-      id: 1,
-      name: 'Pizza Party',
-      description: 'Pizzas artesanales elaboradas con ingredientes de primera calidad. Ideal para eventos y celebraciones.',
-      category: 'Eventos',
-      image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=250&fit=crop',
-    },
-    {
-      id: 4,
-      name: 'Catering',
-      description: 'Servicios de catering para todo tipo de eventos. Menús personalizados según tus necesidades.',
-      category: 'Eventos',
-      image: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=400&h=250&fit=crop',
-    },
-    {
-      id: 6,
-      name: 'Viandas para Empresas',
-      description: 'Menús ejecutivos y viandas para comedores empresariales. Calidad y variedad todos los días.',
-      category: 'Empresas',
-      image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=250&fit=crop',
-    },
-    {
-      id: 65,
-      name: 'Barra de Tragos',
-      description: 'Servicio de barra de tragos profesional para tus eventos. Barman especializado incluido.',
-      category: 'Eventos',
-      image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&h=250&fit=crop',
     },
   ];
 
