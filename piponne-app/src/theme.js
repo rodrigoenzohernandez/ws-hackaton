@@ -3,16 +3,16 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#d32f2f', // Red color typical for Italian food
-      light: '#ff6659',
-      dark: '#9a0007',
+      main: '#1565C0', // Blue from Don Piponne logo
+      light: '#5E92F3',
+      dark: '#003C8F',
       contrastText: '#fff',
     },
     secondary: {
-      main: '#ffa000', // Amber/Gold
-      light: '#ffd149',
-      dark: '#c67100',
-      contrastText: '#000',
+      main: '#E65100', // Orange/Red from "Dal 2004"
+      light: '#FF6D00',
+      dark: '#BF360C',
+      contrastText: '#fff',
     },
     background: {
       default: '#f5f5f5',

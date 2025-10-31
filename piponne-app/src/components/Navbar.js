@@ -68,20 +68,39 @@ const Navbar = () => {
               </IconButton>
             )}
 
-            <Typography
-              variant="h6"
+            <Box
               component={RouterLink}
               to="/"
               sx={{
                 flexGrow: isMobile ? 1 : 0,
                 textDecoration: 'none',
                 color: 'inherit',
-                fontWeight: 700,
+                display: 'flex',
+                alignItems: 'center',
                 mr: 4,
               }}
             >
-              Don Piponne
-            </Typography>
+              <Box
+                component="img"
+                src="/logo.png"
+                alt="Don Piponne"
+                sx={{
+                  height: 50,
+                  mr: 1,
+                  objectFit: 'contain',
+                }}
+              />
+              {!isMobile && (
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 700,
+                  }}
+                >
+                  Don Piponne
+                </Typography>
+              )}
+            </Box>
 
             {!isMobile && (
               <Box sx={{ flexGrow: 1, display: 'flex', gap: 1 }}>

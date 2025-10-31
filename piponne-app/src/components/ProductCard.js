@@ -28,31 +28,14 @@ const ProductCard = ({ product }) => {
       }}
     >
       <CardMedia
-        component="div"
+        component="img"
+        height="200"
+        image={image || 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=200&fit=crop'}
+        alt={name}
         sx={{
-          pt: '56.25%', // 16:9 aspect ratio
-          bgcolor: 'grey.200',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'relative',
+          objectFit: 'cover',
         }}
-        image={image}
-        title={name}
-      >
-        {!image && (
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-            }}
-          >
-            <LocalDiningIcon sx={{ fontSize: 80, color: 'grey.400' }} />
-          </Box>
-        )}
-      </CardMedia>
+      />
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ mb: 1 }}>
           <Chip

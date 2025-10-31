@@ -45,28 +45,28 @@ const Home = () => {
       name: 'Pizza Party',
       description: 'Pizzas artesanales elaboradas con ingredientes de primera calidad. Ideal para eventos y celebraciones.',
       category: 'Eventos',
-      image: null,
+      image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=250&fit=crop',
     },
     {
       id: 4,
       name: 'Catering',
       description: 'Servicios de catering para todo tipo de eventos. Menús personalizados según tus necesidades.',
       category: 'Eventos',
-      image: null,
+      image: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=400&h=250&fit=crop',
     },
     {
       id: 6,
       name: 'Viandas para Empresas',
       description: 'Menús ejecutivos y viandas para comedores empresariales. Calidad y variedad todos los días.',
       category: 'Empresas',
-      image: null,
+      image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=250&fit=crop',
     },
     {
       id: 65,
       name: 'Barra de Tragos',
       description: 'Servicio de barra de tragos profesional para tus eventos. Barman especializado incluido.',
       category: 'Eventos',
-      image: null,
+      image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&h=250&fit=crop',
     },
   ];
 
@@ -78,7 +78,7 @@ const Home = () => {
           bgcolor: 'primary.main',
           color: 'white',
           py: 10,
-          backgroundImage: 'linear-gradient(135deg, #d32f2f 0%, #9a0007 100%)',
+          backgroundImage: 'linear-gradient(135deg, #1565C0 0%, #003C8F 100%)',
         }}
       >
         <Container maxWidth="lg">

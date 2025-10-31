@@ -14,6 +14,7 @@ curl -X POST "${API_URL}/products" \
     "name": "Pizza Party",
     "description": "Pizzas artesanales elaboradas con ingredientes de primera calidad. Incluye variedades clásicas y gourmet.",
     "category": "Eventos",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=250&fit=crop",
     "features": ["Pizzas en el momento", "Variedad de gustos", "Pizzero incluido", "20-200 personas"],
     "isActive": true,
     "order": 1
@@ -28,6 +29,7 @@ curl -X POST "${API_URL}/products" \
     "name": "Catering",
     "description": "Servicio completo de catering para todo tipo de eventos. Menús personalizados según tus necesidades.",
     "category": "Eventos",
+    "image": "https://images.unsplash.com/photo-1555244162-803834f70033?w=400&h=250&fit=crop",
     "features": ["Menús personalizados", "Servicio de mozos", "Vajilla incluida", "Montaje completo"],
     "isActive": true,
     "order": 2

@@ -32,7 +32,7 @@ const ProductDetail = () => {
         description:
           'Nuestro servicio de Pizza Party incluye pizzas artesanales elaboradas con ingredientes de primera calidad. Ofrecemos variedades clásicas como muzarella, napolitana, y calabresa, así como opciones gourmet como rúcula y jamón crudo, roquefort, y especiales del chef.',
         category: 'Eventos',
-        image: null,
+        image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=400&fit=crop',
         features: [
           'Pizzas elaboradas en el momento',
           'Variedad de gustos a elección',
@@ -48,7 +48,7 @@ const ProductDetail = () => {
         description:
           'Servicio completo de catering para todo tipo de eventos: bodas, cumpleaños de 15, eventos corporativos, y más. Diseñamos menús personalizados según tus preferencias y presupuesto.',
         category: 'Eventos',
-        image: null,
+        image: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=800&h=400&fit=crop',
         features: [
           'Menús personalizados',
           'Servicio de mozos',
@@ -64,7 +64,7 @@ const ProductDetail = () => {
         description:
           'Solución integral de alimentación para tu empresa. Menús ejecutivos completos y balanceados, con entrega puntual todos los días. Adaptamos los menús según las necesidades nutricionales y preferencias de tu equipo.',
         category: 'Empresas',
-        image: null,
+        image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=400&fit=crop',
         features: [
           'Menús balanceados y variados',
           'Entrega puntual',
@@ -80,7 +80,7 @@ const ProductDetail = () => {
         description:
           'Servicio profesional de barra de tragos con barman especializado. Ofrecemos una amplia variedad de cócteles clásicos y de autor para hacer de tu evento una experiencia única.',
         category: 'Eventos',
-        image: null,
+        image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&h=400&fit=crop',
         features: [
           'Barman profesional',
           'Amplia variedad de tragos',
@@ -148,13 +148,19 @@ const ProductDetail = () => {
             elevation={2}
             sx={{
               height: 400,
-              bgcolor: 'grey.200',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              overflow: 'hidden',
             }}
           >
-            <LocalDiningIcon sx={{ fontSize: 120, color: 'grey.400' }} />
+            <Box
+              component="img"
+              src={product.image || 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=400&fit=crop'}
+              alt={product.name}
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+            />
           </Paper>
         </Grid>
 
