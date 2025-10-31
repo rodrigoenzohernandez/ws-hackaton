@@ -24,8 +24,25 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Mock data - will be replaced with API call
-    const mockProducts = {
+    const fetchProduct = async () => {
+      try {
+        // Try to fetch from API first
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/products/${id}`);
+        if (response.ok) {
+          const data = await response.json();
+          setProduct({
+            ...data,
+            id: data._id,
+          });
+          setLoading(false);
+          return;
+        }
+      } catch (error) {
+        console.error('Error fetching product:', error);
+      }
+
+      // Fallback to mock data
+      const mockProducts = {
       '1': {
         id: 1,
         name: 'Pizza Party',
@@ -92,10 +109,11 @@ const ProductDetail = () => {
       },
     };
 
-    setTimeout(() => {
       setProduct(mockProducts[id] || null);
       setLoading(false);
-    }, 500);
+    };
+
+    fetchProduct();
   }, [id]);
 
   if (loading) {
